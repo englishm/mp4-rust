@@ -143,9 +143,9 @@ impl<R: Read + Seek> ReadBox<&mut R> for StblBox {
         if stsz.is_none() {
             return Err(Error::BoxNotFound(BoxType::StszBox));
         }
-        if stco.is_none() && co64.is_none() {
-            return Err(Error::Box2NotFound(BoxType::StcoBox, BoxType::Co64Box));
-        }
+        // if stco.is_none() && co64.is_none() {
+        //     return Err(Error::Box2NotFound(BoxType::StcoBox, BoxType::Co64Box));
+        // }
 
         skip_bytes_to(reader, start + size)?;
 
